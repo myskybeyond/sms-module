@@ -1,0 +1,43 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:13306/zentao?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+#  网易邮箱设置 目前可发送163|126 163邮箱需修改host: smtp.163.com
+  mail:
+    host: smtp.126.com
+    port:
+    username: shangyuanljt@126.com
+    password:
+    protocol: smtp
+
+#微信公众号模版消息设置
+#enable可选值 true|false 默认false
+wx:
+  mp:
+    enable: false
+    appId:
+    secret:
+    token:
+    aesKey:
+
+#短信息设置
+sms:
+  enable: false
+  provider: com.syzn.sms.service.impl.AliSmsServiceImpl
+  access-key:
+  secret-key:
+  valid-seconds: 1200
+  send-interval: 120
+  max-sends-per-day: 5
+
+#邮件推送开关
+mail:
+  enable: true
+#消息提前几天提醒设置
+duty:
+  remain:
+    before:
+      days: 2

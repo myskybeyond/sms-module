@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 这里填写对应的Dao文件所在的路径 -->
+<mapper namespace="com.syzn.sms.mapper.DutyPlanMapper">
+
+    <select id="queryDutyPlans" resultType="com.syzn.sms.job.task.bean.mp.DutyNoticeTemplateBean">
+        select t1.duty_dt as dutyDate,t1.duty_area_name as dutyAreaName,t2.realname as dutyEmployeeName,t2.email as email,t2.mobile as mobile,t2.weixin as weChat from
+        (SELECT duty_dt,duty_area_name, employee_id FROM zentao.`t_duty_plan` where duty_dt>=#{startDt} and duty_dt <![CDATA[<=]]> #{endDt}) t1
+        left join zentao.zt_user t2 on t1.employee_id=t2.id
+    </select>
+</mapper>
